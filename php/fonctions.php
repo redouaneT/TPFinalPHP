@@ -84,9 +84,9 @@
         $gender = false;
         break;
     }
-    // Trier la liste du tableau à afficher selon le sex choisi par l'utilisateur
+    // Trier la liste du tableau à afficher selon le sexe choisi par l'utilisateur
     foreach ($groupeTab as $value) {
-      // si on a specifier le sex
+      // si on a specifier le sexe
       if ($gender != false) {
         // fait un tri selon la selection 
         if (in_array($gender,$value)) {
@@ -123,7 +123,7 @@
       $noteMoyenne = number_format(($sommeNote/$index),2);
     }
     // Construir l'entete du tableau à afficher
-    $thead = ["$classe" => ["Nom", "Prénom","Sex","Note Finale (%)"]];
+    $thead = ["$classe" => ["Nom", "Prénom","Sexe","Note Finale (%)"]];
     // construire table HTML
     ConstruireTable($thead, $tbody,$noteMoyenne);
   }
@@ -141,7 +141,7 @@
     // verrifier si le code permanent existe dans la liste des etudiants, ensuite
     // récuperer les informations de l'élement à afficher, les mettres dans les tableaux pour construire la table HTML
     if (array_key_exists($codePermanent, $listeEtudiants)) {
-      $thead = ["Code permanent : $codePermanent" =>["Nom","Prénom", "Sex", "Age","Travail 1 (%)","Travail 2 (%)","Examen final (%)","Note Finale (%)"]];
+      $thead = ["Code permanent : $codePermanent" =>["Nom","Prénom", "Sexe", "Age","Travail 1 (%)","Travail 2 (%)","Examen final (%)","Note Finale (%)"]];
       $noteFinale = calculNoteFinal(array_slice( $listeEtudiants[$codePermanent],4,3));
       $tbody[$codePermanent] = $listeEtudiants[$codePermanent];
       array_push($tbody[$codePermanent], $noteFinale);
